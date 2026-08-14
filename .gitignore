@@ -1,0 +1,12 @@
+# never commit the key
+.env
+*.key
+
+# run output
+drawing_*/
+out/
+*.log
+__pycache__/
+*.pyc
+.venv/
+venv/

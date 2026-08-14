@@ -1,0 +1,6 @@
+google-genai>=1.0        # the Gemini image API client
+numpy
+pillow
+shapely                  # region polygons, containment, nesting
+svgpathtools             # reads SVG paths that editors have rewritten
+matplotlib               # prompt_map only
