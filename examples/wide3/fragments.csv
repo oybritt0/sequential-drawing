@@ -1,0 +1,25 @@
+name,work_id,period,coseg_part,material,organization,gestalt,surface,true_points,curated_points,arcs,straight,deviation_px,area_err_pct
+frag_00__deconstructivism__corroded-steel__austere-restraint,10_deconstructivisme6461ba578,10_deconstructivism,22,corroded steel,layered stratification,austere restraint,flat diffuse illumination,959,409,49,35,12.0,0.36
+frag_01__deconstructivism__corroded-steel__austere-restraint,10_deconstructivisme6461ba578,10_deconstructivism,17,corroded steel,layered stratification,austere restraint,flat diffuse illumination,763,453,57,39,7.1,0.39
+frag_02__neoclassical__drystone-rubble-walling__austere-restraint,06_neoclassical925ef7b94c,06_neoclassical,12,drystone rubble walling,a centralized plan,austere restraint,a perforated screen,1594,426,49,33,11.1,0.43
+frag_03__postmodernism__thatch__horizontal-extension,14_postmodernism4725503cac,14_postmodernism,19,thatch,layered stratification,horizontal extension,raking light across relief,1479,558,75,54,9.7,1.04
+frag_04__neoclassical__drystone-rubble-walling__austere-restraint,06_neoclassical925ef7b94c,06_neoclassical,1,drystone rubble walling,a centralized plan,austere restraint,a perforated screen,1475,387,45,35,10.1,0.41
+frag_05__medieval__thatch__monumental-mass,03_medievale4a8a092a2,03_medieval,6,thatch,a centralized plan,monumental mass,a perforated screen,828,475,59,42,8.1,0.84
+frag_06__postmodernism__thatch__horizontal-extension,14_postmodernism4725503cac,14_postmodernism,12,thatch,layered stratification,horizontal extension,raking light across relief,842,372,44,34,6.5,1.0
+frag_07__neoclassical__drystone-rubble-walling__austere-restraint,06_neoclassical925ef7b94c,06_neoclassical,6,drystone rubble walling,a centralized plan,austere restraint,a perforated screen,1108,404,56,41,11.1,0.52
+frag_08__deconstructivism__fired-brick__compressive-heaviness,10_deconstructivismb0705340f4,10_deconstructivism,22,fired brick,a linear procession of spaces,compressive heaviness,a perforated screen,1484,488,68,47,6.4,1.15
+frag_09__medieval__thatch__monumental-mass,03_medievale4a8a092a2,03_medieval,17,thatch,a centralized plan,monumental mass,a perforated screen,1089,492,54,46,5.9,0.69
+frag_10__parametric__polished-marble__weightless-suspension,12_parametric67029a3d8b,12_parametric,1,polished marble,additive massing,weightless suspension,a reflective mirrored skin,934,523,62,44,6.3,0.37
+frag_11__parametric__polished-marble__weightless-suspension,12_parametric67029a3d8b,12_parametric,12,polished marble,additive massing,weightless suspension,a reflective mirrored skin,886,329,45,38,6.4,0.52
+frag_12__neoclassical__timber-framing__compressive-heaviness,06_neoclassical2f499fa07d,06_neoclassical,22,timber framing,a dome over a drum,compressive heaviness,a perforated screen,571,376,52,34,6.2,0.92
+frag_13__prehistoric__thatch__austere-restraint,01_prehistoricd8d1cafe17,01_prehistoric,10,thatch,a cantilevered overhang,austere restraint,a perforated screen,677,404,59,46,6.3,0.76
+frag_14__postmodernism__thatch__horizontal-extension,14_postmodernism4725503cac,14_postmodernism,23,thatch,layered stratification,horizontal extension,raking light across relief,521,233,32,22,3.6,0.67
+frag_15__neoclassical__timber-framing__compressive-heaviness,06_neoclassical2f499fa07d,06_neoclassical,7,timber framing,a dome over a drum,compressive heaviness,a perforated screen,574,364,54,40,5.2,0.65
+frag_16__parametric__polished-marble__weightless-suspension,12_parametrice2c28b9e96,12_parametric,7,polished marble,additive massing,weightless suspension,a reflective mirrored skin,464,329,43,36,3.8,0.16
+frag_17__parametric__polished-marble__weightless-suspension,12_parametric67029a3d8b,12_parametric,17,polished marble,additive massing,weightless suspension,a reflective mirrored skin,442,203,30,30,2.8,0.49
+frag_18__modernism__timber-framing__dynamic-diagonal-movement,07_modernism96a98656eb,07_modernism,0,timber framing,layered stratification,dynamic diagonal movement,a reflective mirrored skin,437,439,55,39,4.2,0.71
+frag_19__neoclassical__timber-framing__compressive-heaviness,06_neoclassical2f499fa07d,06_neoclassical,18,timber framing,a dome over a drum,compressive heaviness,a perforated screen,306,268,42,34,4.0,0.06
+frag_20__modernism__timber-framing__dynamic-diagonal-movement,07_modernism96a98656eb,07_modernism,0,timber framing,layered stratification,dynamic diagonal movement,a reflective mirrored skin,391,205,29,22,1.8,0.48
+frag_21__deconstructivism__fired-brick__compressive-heaviness,10_deconstructivismb0705340f4,10_deconstructivism,20,fired brick,a linear procession of spaces,compressive heaviness,a perforated screen,469,276,38,28,2.2,0.67
+frag_22__postmodernism__thatch__horizontal-extension,14_postmodernism4725503cac,14_postmodernism,1,thatch,layered stratification,horizontal extension,raking light across relief,392,325,45,34,2.3,0.6
+frag_23__prehistoric__thatch__austere-restraint,01_prehistoricd8d1cafe17,01_prehistoric,19,thatch,a cantilevered overhang,austere restraint,a perforated screen,257,173,26,22,2.5,0.56

@@ -56,6 +56,10 @@ def main(argv=None) -> int:
                     help="lift mid-grey hatching toward white after each region")
     ap.add_argument("--no-finish", action="store_false", dest="finish", default=True,
                     help="skip the whole-frame unifying pass")
+    ap.add_argument("--legacy-v3", action="store_true", dest="legacy",
+                    help="reproduce the archived examples/wide3 run: plain crop "
+                         "with no region marking, and the older instruction "
+                         "without the line-convention or no-text blocks")
     ap.add_argument("--retries", type=int, default=3)
     ap.add_argument("--dry-run", action="store_true",
                     help="print the order, nesting and prompts; call nothing")
@@ -99,7 +103,8 @@ def main(argv=None) -> int:
     backend = RB.build(negative=RD.negative_for(a.mode),
                        style_refs=[str(p) for p in refs], model=a.model,
                        ref_mode=a.ref_mode if refs else "none",
-                       mono=a.mono, ink_clean=a.ink_clean, mode=a.mode)
+                       mono=a.mono, ink_clean=a.ink_clean, mode=a.mode,
+                       legacy=a.legacy)
     print(f"backend: {backend.model}, {len(backend.style_refs)} reference images\n")
 
     canvas_path = out / "canvas.png"
@@ -148,6 +153,8 @@ def main(argv=None) -> int:
 
     (out / "run.json").write_text(json.dumps({
         "svg": str(svg), "model": backend.model, "mode": a.mode,
+        "ref_mode": a.ref_mode if refs else "none", "mono": a.mono,
+        "ink_clean": a.ink_clean, "legacy_v3": a.legacy, "base": a.base,
         "size": a.size, "regions": len(frags), "calls": done,
         "failed": failed, "style_refs": [p.name for p in refs],
         "minutes": round((time.time() - t0) / 60, 1),

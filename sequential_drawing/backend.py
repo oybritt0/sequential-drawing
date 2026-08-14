@@ -178,7 +178,8 @@ class GeminiBackend:
     name = "gemini"
 
     def __init__(self, negative, model=GEMINI_MODEL, style_refs=None, pad=0.10,
-                 api_key=None, ref_mode="patches", patches_per_ref=2, mono=True, ink_clean=False, mode="plan"):
+                 api_key=None, ref_mode="patches", patches_per_ref=2, mono=True, ink_clean=False, mode="plan",
+                 legacy=False):
         from google import genai
         key = api_key or os.environ.get("GEMINI_API_KEY") or \
             os.environ.get("GOOGLE_API_KEY")
@@ -204,9 +205,27 @@ class GeminiBackend:
         self.mono = mono
         self.ink_clean = ink_clean
         self.mode = mode if mode in PROJECTION else "plan"
+        self.legacy = legacy
         self.calls = 0
 
+    _LEGACY_INSTRUCTION = (
+        "Redraw ONLY the interior of the shape at the centre of this image as "
+        "an architectural drawing. Keep the outer edges of the frame unchanged "
+        "so the result composites seamlessly.\n\n"
+        "STRICTLY a horizontal cut seen from directly overhead, like a floor "
+        "plan. No axonometric, no isometric, no oblique or sheared view, no "
+        "section, no elevation, no depth or shading that implies a 3D view. "
+        "Every region of this sheet must read at the same scale and in the "
+        "same projection.\n\n"
+        "Draw: {prompt}\n\n"
+        "Avoid: {negative}\n\n"
+        "Pure black ink line work on WHITE paper. Greyscale only -- no colour, "
+        "no cream, sepia, yellow or warm paper tint.")
+
     def _instruction(self, prompt, mode=None):
+        if self.legacy:
+            return self._LEGACY_INSTRUCTION.format(prompt=prompt,
+                                                   negative=self.negative)
         # Gemini edits by description, so the region has to be named in words as
         # well as cropped; "only within" holds the edit off the surrounding pad.
         return (
@@ -306,7 +325,8 @@ class GeminiBackend:
 
     def fill(self, canvas, ring, prompt, *, size, feather=3.0, mode=None, **_):
         box = ring_bbox(ring, size, self.pad)
-        crop = self._mark_crop(canvas, ring, size, box)
+        crop = (canvas.crop(box) if self.legacy
+                else self._mark_crop(canvas, ring, size, box))
         parts = [self._instruction(prompt, mode)]
         if self.style_refs:
             parts.append(self._REF_RULE)

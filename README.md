@@ -80,6 +80,20 @@ Map which region got which prompt:
 python -m sequential_drawing.prompt_map examples/composition.svg --image drawing_*/final_restyled.png
 ```
 
+## An archived run, with its inputs and outputs
+
+[`examples/wide3/`](examples/wide3/) holds a complete Gemini run — the input
+composition, every prompt, the base sheet, the sequence, the assembled and
+unified results, and the region key. Its own README records exactly what ran and
+what has changed in the code since.
+
+```bash
+python -m sequential_drawing.run examples/wide3/composition.svg     --model nano-banana-pro --refs examples/wide3/reference --legacy-v3
+```
+
+`--legacy-v3` reproduces the older behaviour that made those images. Drop it for
+the current method, which handles the same input better.
+
 ---
 
 ## Input format
@@ -146,4 +160,5 @@ sequential_drawing/
   prompt_map.py   keyed region -> prompt map, PNG + CSV + MD
 examples/
   composition.svg 24 tagged regions
+  wide3/          a complete archived run: input, prompts, sequence, results
 ```
