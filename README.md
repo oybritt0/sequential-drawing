@@ -10,10 +10,26 @@ enclosure and a concrete cantilever are drawn as different things, in their own
 right, in the same sheet — and a region nested inside another inherits its
 parent's material and organization as context.
 
-|  |  |
-| --- | --- |
-| ![plan](examples/result_plan.png) | ![section](examples/result_section.png) |
-| `--mode plan` | `--mode section` |
+![the finished sheet](examples/wide3/final_restyled.png)
+
+<sub>24 regions, each drawn from its own tags, then unified in one whole-frame
+pass. `examples/wide3/` holds this run in full.</sub>
+
+Every region is keyed back to the terms its prompt was built from, so a sheet can
+be read as an argument rather than an image:
+
+![region key](examples/wide3/prompt_map.png)
+
+The sheet is built in sequence, one region at a time — regions 1, 6, 12 and 24 of 24:
+
+|  |  |  |  |
+| --- | --- | --- | --- |
+| ![1](examples/wide3/sequence/01_curated__frag_00__deconstructivism__corroded.png) | ![6](examples/wide3/sequence/06_curated__frag_05__medieval__thatch__monument.png) | ![12](examples/wide3/sequence/12_curated__frag_11__parametric__polished-marbl.png) | ![24](examples/wide3/sequence/24_curated__frag_23__prehistoric__thatch__auste.png) |
+| corroded steel, deconstructivism | thatch, medieval | polished marble, parametric | thatch, prehistoric |
+
+The same geometry can also be cut as a section rather than a plan — `--mode
+section`, or `--mode mixed` to let each region take whichever its own
+organization term implies.
 
 ---
 
@@ -39,13 +55,13 @@ export GEMINI_API_KEY=your_key_here
 See what it would do, without spending a single call:
 
 ```bash
-python -m sequential_drawing.run examples/composition.svg --dry-run
+python -m sequential_drawing.run examples/wide3/composition.svg --dry-run
 ```
 
 Draw it:
 
 ```bash
-python -m sequential_drawing.run examples/composition.svg
+python -m sequential_drawing.run examples/wide3/composition.svg
 ```
 
 One call per region plus one for the unifying pass, so a 24-region sheet is 25
@@ -77,7 +93,7 @@ stopped.
 Map which region got which prompt:
 
 ```bash
-python -m sequential_drawing.prompt_map examples/composition.svg --image drawing_*/final_restyled.png
+python -m sequential_drawing.prompt_map examples/wide3/composition.svg --image drawing_*/final_restyled.png
 ```
 
 ## An archived run, with its inputs and outputs
@@ -88,7 +104,7 @@ unified results, and the region key. Its own README records exactly what ran and
 what has changed in the code since.
 
 ```bash
-python -m sequential_drawing.run examples/wide3/composition.svg     --model nano-banana-pro --refs examples/wide3/reference --legacy-v3
+python -m sequential_drawing.run examples/wide3/composition.svg --model nano-banana-pro --refs examples/wide3/reference --legacy-v3
 ```
 
 `--legacy-v3` reproduces the older behaviour that made those images. Drop it for
@@ -159,6 +175,5 @@ sequential_drawing/
   run.py          the driver
   prompt_map.py   keyed region -> prompt map, PNG + CSV + MD
 examples/
-  composition.svg 24 tagged regions
   wide3/          a complete archived run: input, prompts, sequence, results
 ```
